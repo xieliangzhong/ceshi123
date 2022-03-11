@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo2.dao.UserLoginLogDao">
+
+
+    <insert id="add" parameterType="com.example.demo2.entity.UserLoginLog">
+        insert into userloginlog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                userId,
+            </if>
+            <if test="loginIp != null">
+                loginIp,
+            </if>
+            <if test="loginType != null">
+                loginType,
+            </if>
+            <if test="loginStatus != null">
+                loginStatus,
+            </if>
+                loginTime,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="loginIp != null">
+                #{loginIp},
+            </if>
+            <if test="loginType != null">
+                #{loginType},
+            </if>
+            <if test="loginStatus != null">
+                #{loginStatus},
+            </if>
+                now(),
+        </trim>
+    </insert>
+
+</mapper>
